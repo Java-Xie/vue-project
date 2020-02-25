@@ -1,5 +1,6 @@
 <template>
   <el-card>
+    <img src="../assets/logo.png">
     <h1>{{ msg }}</h1>
     <el-row :gutter="20">
       <el-col :span="6" :offset="9">
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HelloWorld',
   data () {
@@ -28,6 +30,16 @@ export default {
   methods: {
     login () {
       console.log('账号为：' + this.username + '，密码为：' + this.password)
+      let thisVue = this
+      // 为给定 ID 的 user 创建请求
+      axios.get('http://localhost:8080/register?name=' + this.username + '&pwd=' + this.password)
+        .then(function (response) {
+          console.log(response)
+          thisVue.$router.push('/Ind')
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   }
 }
