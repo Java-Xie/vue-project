@@ -1,8 +1,8 @@
 <template>
   <el-container>
-    <el-header><Head/></el-header>
+    <el-header><Head @transferUsers = 'getUser'/></el-header>
     <el-container>
-      <el-aside><Left/></el-aside>
+      <el-aside><Left :menus="menus"/></el-aside>
       <el-container>
         <el-main><h1>测试</h1></el-main>
         <el-footer>Footer</el-footer>
@@ -16,10 +16,18 @@ import Head from './Head'
 import Left from './Left'
 export default {
   name: 'Index',
+  data () {
+    return {
+      menus: ['测试']
+    }
+  },
   components: {Left, Head},
   methods: {
     back () {
       this.$router.push('/')
+    },
+    getUser (msg) {
+      this.menus = msg
     }
   }
 }

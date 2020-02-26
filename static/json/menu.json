@@ -1,0 +1,55 @@
+{
+  "menus": [
+    {
+      "name": "菜单一",
+      "sonMenus": [
+        {
+          "name": "菜单一的子菜单1",
+          "url": "/first/1"
+        },
+        {
+          "name": "菜单一的子菜单2",
+          "url": "/first/2"
+        },
+        {
+          "name": "菜单一的子菜单3",
+          "url": "/first/3"
+        }
+      ]
+    },
+    {
+      "name": "菜单二",
+      "sonMenus": [
+        {
+          "name": "菜单二的子菜单1",
+          "url": "/second/1"
+        },
+        {
+          "name": "菜单二的子菜单2",
+          "url": "/second/2"
+        },
+        {
+          "name": "菜单二的子菜单3",
+          "url": "/second/3"
+        }
+      ]
+    },
+    {
+      "name": "菜单三",
+      "sonMenus": [
+        {
+          "name": "菜单三的子菜单1",
+          "url": "/thirdly/1"
+        },
+        {
+          "name": "菜单三的子菜单2",
+          "url": "/thirdly/2"
+        },
+        {
+          "name": "菜单三的子菜单3",
+          "url": "/thirdly/3"
+        }
+      ]
+    }
+  ]
+}

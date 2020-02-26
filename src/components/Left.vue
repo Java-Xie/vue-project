@@ -9,7 +9,7 @@
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
-            <span>导航一</span>
+            <span>{{menus}}</span>
           </template>
           <el-menu-item index="1-1">选项1</el-menu-item>
           <el-menu-item index="1-2">选项2</el-menu-item>
@@ -38,6 +38,11 @@
 <script>
 export default {
   name: 'Left',
+  data () {
+    return {
+    }
+  },
+  props: ['menus'],
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)
