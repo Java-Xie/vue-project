@@ -11,7 +11,7 @@
             <i class="el-icon-location"></i>
             <span>{{menu.name}}</span>
           </template>
-          <el-menu-item :index="(key).toString()" :key="key" v-for="(menu, key) in menu.menus">{{menu.name}}</el-menu-item>
+          <el-menu-item @click="handleClick" :key="key" v-for="(menu, key) in menu.menus">{{menu.name}}</el-menu-item>
         </el-submenu>
       </el-menu>
     </el-col>
@@ -32,6 +32,9 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    handleClick (key) {
+      console.log(key)
     }
   }
 }

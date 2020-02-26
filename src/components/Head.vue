@@ -15,8 +15,7 @@ export default {
       menus: []
     }
   },
-  beforeCreate: function () {
-    console.log('创建')
+  mounted: function () {
     let thisVue = this
     // 为给定 ID 的 user 创建请求
     axios.get('/static/json/menu.json')
@@ -26,6 +25,12 @@ export default {
       .catch(function (error) {
         console.log(error)
       })
+  },
+  beforeUpdate: function () {
+    console.log('beforeUpdate')
+  },
+  updated: function () {
+    console.log('updated')
   },
   methods: {
     handleSelect (key) {

@@ -4,7 +4,7 @@
     <el-container>
       <el-aside><Left :menus="menus"/></el-aside>
       <el-container>
-        <el-main><h1>测试</h1></el-main>
+        <el-main><Main /></el-main>
         <el-footer>Footer</el-footer>
       </el-container>
     </el-container>
@@ -14,6 +14,7 @@
 <script>
 import Head from './Head'
 import Left from './Left'
+import Main from './main/Main'
 export default {
   name: 'Index',
   data () {
@@ -21,7 +22,7 @@ export default {
       menus: ['测试']
     }
   },
-  components: {Left, Head},
+  components: {Left, Head, Main},
   methods: {
     back () {
       this.$router.push('/')
