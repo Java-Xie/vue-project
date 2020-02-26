@@ -2,7 +2,7 @@
   "menus": [
     {
       "name": "菜单一",
-      "sonMenus": [
+      "menus": [
         {
           "name": "菜单一的子菜单1",
           "url": "/first/1"
@@ -19,7 +19,7 @@
     },
     {
       "name": "菜单二",
-      "sonMenus": [
+      "menus": [
         {
           "name": "菜单二的子菜单1",
           "url": "/second/1"
@@ -36,18 +36,60 @@
     },
     {
       "name": "菜单三",
-      "sonMenus": [
+      "menus": [
         {
           "name": "菜单三的子菜单1",
-          "url": "/thirdly/1"
+          "url": "/thirdly/1",
+          "menus": [
+            {
+              "name": "菜单三的子菜单1/1",
+              "url": "/second/1"
+            },
+            {
+              "name": "菜单三的子菜单1/2",
+              "url": "/second/2"
+            },
+            {
+              "name": "菜单三的子菜单1/3",
+              "url": "/second/3"
+            }
+          ]
         },
         {
           "name": "菜单三的子菜单2",
-          "url": "/thirdly/2"
+          "url": "/thirdly/2",
+          "menus": [
+            {
+              "name": "菜单三的子菜单2/1",
+              "url": "/second/1"
+            },
+            {
+              "name": "菜单三的子菜单2/2",
+              "url": "/second/2"
+            },
+            {
+              "name": "菜单三的子菜单2/3",
+              "url": "/second/3"
+            }
+          ]
         },
         {
           "name": "菜单三的子菜单3",
-          "url": "/thirdly/3"
+          "url": "/thirdly/3",
+          "menus": [
+            {
+              "name": "菜单三的子菜单3/1",
+              "url": "/second/1"
+            },
+            {
+              "name": "菜单三的子菜单3/2",
+              "url": "/second/2"
+            },
+            {
+              "name": "菜单三的子菜单3/3",
+              "url": "/second/3"
+            }
+          ]
         }
       ]
     }

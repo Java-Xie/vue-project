@@ -1,7 +1,7 @@
 <template>
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
     <template v-for="(menu, key) in menus">
-      <el-menu-item :index="(key + 1).toString()" :key="key">{{menu.name}}</el-menu-item>
+      <el-menu-item :index="(key).toString()" :key="key">{{menu.name}}</el-menu-item>
     </template>
   </el-menu>
 </template>
@@ -11,7 +11,7 @@ export default {
   name: 'Head',
   data () {
     return {
-      activeIndex: '1',
+      activeIndex: '0',
       menus: []
     }
   },
@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     handleSelect (key) {
-      console.log(this.menus[key - 1])
-      this.$emit('transferUsers', this.menus)
+      console.log(this.menus[key])
+      this.$emit('transferUsers', this.menus[key])
     }
   }
 }
