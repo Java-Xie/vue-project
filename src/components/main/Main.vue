@@ -18,29 +18,17 @@ export default {
   components: {Demo, Test},
   data () {
     return {
-      editableTabsValue: '2',
       editableTabs: [{
-        title: 'Tab 1',
+        title: '首页',
         name: '1',
         content: 'Test'
-      }, {
-        title: 'Tab 2',
-        name: '2',
-        content: 'Demo'
       }],
+      editableTabsValue: '1',
       tabIndex: 2
     }
   },
+  props: [],
   methods: {
-    addTab (targetName) {
-      let newTabName = ++this.tabIndex + ''
-      this.editableTabs.push({
-        title: 'New Tab',
-        name: newTabName,
-        content: 'New Tab content'
-      })
-      this.editableTabsValue = newTabName
-    },
     removeTab (targetName) {
       let tabs = this.editableTabs
       let activeName = this.editableTabsValue
@@ -54,9 +42,24 @@ export default {
           }
         })
       }
-
       this.editableTabsValue = activeName
       this.editableTabs = tabs.filter(tab => tab.name !== targetName)
+    },
+    addTab (tab) {
+      let b = this.editableTabs.findIndex(function (s) {
+        return s.title === tab.name
+      })
+      if (b === -1) {
+        b = ++this.tabIndex + ''
+        this.editableTabs.push({
+          title: tab.name,
+          name: b,
+          content: tab.content
+        })
+        this.editableTabsValue = b
+      } else {
+        this.editableTabsValue = this.editableTabs[b].name
+      }
     }
   }
 }

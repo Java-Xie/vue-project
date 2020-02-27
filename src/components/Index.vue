@@ -1,10 +1,12 @@
 <template>
   <el-container>
-    <el-header><Head @transferUsers = 'getUser'/></el-header>
+    <el-header><Head @transferUsers='getUser'/></el-header>
     <el-container>
-      <el-aside><Left :menus="menus"/></el-aside>
+      <el-aside><Left @addTab="addTab" :menus="menus"/></el-aside>
       <el-container>
-        <el-main><Main /></el-main>
+        <el-main>
+          <Main ref="main"/>
+        </el-main>
         <el-footer>Footer</el-footer>
       </el-container>
     </el-container>
@@ -19,7 +21,8 @@ export default {
   name: 'Index',
   data () {
     return {
-      menus: ['测试']
+      menus: ['测试'],
+      tab: {}
     }
   },
   components: {Left, Head, Main},
@@ -29,6 +32,9 @@ export default {
     },
     getUser (msg) {
       this.menus = msg
+    },
+    addTab (tab) {
+      this.$refs.main.addTab(tab)
     }
   }
 }

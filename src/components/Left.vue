@@ -2,16 +2,15 @@
   <el-row class="tac">
     <el-col>
       <el-menu
-        default-active="1-1"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose">
-        <el-submenu :index="(key).toString()" :key="key" v-for="(menu, key) in menus.menus">
+        <el-submenu :index="key.toString()" :key="key" v-for="(menu, key) in menus.menus">
           <template slot="title">
             <i class="el-icon-location"></i>
-            <span>{{menu.name}}</span>
+            <span>{{menu.name}}</span><span>{{key}}</span>
           </template>
-          <el-menu-item @click="handleClick" :key="key" v-for="(menu, key) in menu.menus">{{menu.name}}</el-menu-item>
+          <el-menu-item @click="handleClick(tab)" :index="key + '-' + keyZ" :key="keyZ" v-for="(tab, keyZ) in menu.menus">{{tab.name + keyZ}}</el-menu-item>
         </el-submenu>
       </el-menu>
     </el-col>
@@ -23,6 +22,7 @@ export default {
   name: 'Left',
   data () {
     return {
+      opened: 0
     }
   },
   props: ['menus'],
@@ -33,8 +33,8 @@ export default {
     handleClose (key, keyPath) {
       console.log(key, keyPath)
     },
-    handleClick (key) {
-      console.log(key)
+    handleClick (tab) {
+      this.$emit('addTab', tab)
     }
   }
 }

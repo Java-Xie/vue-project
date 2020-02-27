@@ -43,15 +43,13 @@
           "menus": [
             {
               "name": "菜单三的子菜单1/1",
-              "url": "/second/1"
+              "url": "/second/1",
+              "content": "Test"
             },
             {
               "name": "菜单三的子菜单1/2",
-              "url": "/second/2"
-            },
-            {
-              "name": "菜单三的子菜单1/3",
-              "url": "/second/3"
+              "url": "/second/2",
+              "content": "Demo"
             }
           ]
         },

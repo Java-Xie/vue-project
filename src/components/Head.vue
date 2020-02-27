@@ -34,7 +34,6 @@ export default {
   },
   methods: {
     handleSelect (key) {
-      console.log(this.menus[key])
       this.$emit('transferUsers', this.menus[key])
     }
   }
