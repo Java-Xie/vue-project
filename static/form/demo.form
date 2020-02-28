@@ -1,0 +1,17 @@
+{
+  "controls": [{
+    "title": "首页",
+    "name": "1",
+    "content": "NumberForm"
+  },
+  {
+    "title": "首页",
+    "name": "2",
+    "content": "NumberForm"
+  },
+  {
+    "title": "首页",
+    "name": "3",
+    "content": "TextForm"
+  }]
+}

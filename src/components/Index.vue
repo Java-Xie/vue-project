@@ -4,9 +4,7 @@
     <el-container>
       <el-aside><Left @addTab="addTab" :menus="menus"/></el-aside>
       <el-container>
-        <el-main>
-          <Main ref="main"/>
-        </el-main>
+        <el-main><Main ref="main"/></el-main>
         <el-footer>Footer</el-footer>
       </el-container>
     </el-container>

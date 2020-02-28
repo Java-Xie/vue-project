@@ -13,15 +13,17 @@
 <script>
 import Demo from './Demo'
 import Test from './Test'
+import Form from './Form'
+import TextForm from '../Form/TextForm'
 export default {
   name: 'Main',
-  components: {Demo, Test},
+  components: {Demo, Test, Form, TextForm},
   data () {
     return {
       editableTabs: [{
         title: '首页',
         name: '1',
-        content: 'Test'
+        content: 'Form'
       }],
       editableTabsValue: '1',
       tabIndex: 2

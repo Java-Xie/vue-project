@@ -21,16 +21,11 @@ export default {
     axios.get('/static/json/menu.json')
       .then(function (response) {
         thisVue.menus = response.data.menus
+        thisVue.$emit('transferUsers', thisVue.menus[thisVue.activeIndex])
       })
       .catch(function (error) {
         console.log(error)
       })
-  },
-  beforeUpdate: function () {
-    console.log('beforeUpdate')
-  },
-  updated: function () {
-    console.log('updated')
   },
   methods: {
     handleSelect (key) {
