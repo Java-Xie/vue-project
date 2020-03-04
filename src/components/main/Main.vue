@@ -6,7 +6,8 @@
       :label="item.title"
       :name="item.name"
     >
-      <component :is="item.content"/>
+      <component v-if="item.content !== 'DataContainer'" :is="item.content"/>
+      <component v-if="item.content === 'DataContainer'" :is="item.content" :data="item.data"/>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -14,10 +15,11 @@
 import Demo from './Demo'
 import Test from './Test'
 import Form from './Form'
-import TextForm from '../Form/TextForm'
+import TextForm from '../form/TextForm'
+import DataContainer from './data/DataContainer'
 export default {
   name: 'Main',
-  components: {Demo, Test, Form, TextForm},
+  components: {Demo, Test, Form, TextForm, DataContainer},
   data () {
     return {
       editableTabs: [{
@@ -56,7 +58,8 @@ export default {
         this.editableTabs.push({
           title: tab.name,
           name: b,
-          content: tab.content
+          content: tab.content,
+          data: tab.data
         })
         this.editableTabsValue = b
       } else {

@@ -38,16 +38,38 @@
       "name": "菜单三",
       "menus": [
         {
-          "name": "菜单三的子菜单1",
+          "name": "菜单",
           "url": "/thirdly/1",
           "menus": [
             {
-              "name": "菜单三的子菜单1/1",
+              "name": "数据表",
               "url": "/second/1",
-              "content": "Test"
+              "content": "DataContainer",
+              "test": "test",
+              "data": [
+                {
+                  "tab": "DrillMainTable"
+                },
+                {
+                  "tab": "DrillDetailTable"
+                },
+                {
+                  "tab": "DrillCodeTable"
+                }
+              ]
             },
             {
-              "name": "菜单三的子菜单1/2",
+              "name": "数据视图",
+              "url": "/second/2",
+              "content": "Demo"
+            },
+            {
+              "name": "复合表单",
+              "url": "/second/2",
+              "content": "Demo"
+            },
+            {
+              "name": "自定义表单",
               "url": "/second/2",
               "content": "Demo"
             }

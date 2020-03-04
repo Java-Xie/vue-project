@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import TextForm from '../Form/TextForm'
-import NumberForm from '../Form/NumberForm'
+import TextForm from '../form/TextForm'
+import NumberForm from '../form/NumberForm'
 import axios from 'axios'
 export default {
   name: 'Form',

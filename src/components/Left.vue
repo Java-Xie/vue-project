@@ -8,9 +8,9 @@
         <el-submenu :index="key.toString()" :key="key" v-for="(menu, key) in menus.menus">
           <template slot="title">
             <i class="el-icon-location"></i>
-            <span>{{menu.name}}</span><span>{{key}}</span>
+            <span>{{menu.name}}</span>
           </template>
-          <el-menu-item @click="handleClick(tab)" :index="key + '-' + keyZ" :key="keyZ" v-for="(tab, keyZ) in menu.menus">{{tab.name + keyZ}}</el-menu-item>
+          <el-menu-item @click="handleClick(tab)" :index="key + '-' + keyZ" :key="keyZ" v-for="(tab, keyZ) in menu.menus">{{tab.name}}</el-menu-item>
         </el-submenu>
       </el-menu>
     </el-col>
@@ -34,6 +34,7 @@ export default {
       console.log(key, keyPath)
     },
     handleClick (tab) {
+      console.log(tab)
       this.$emit('addTab', tab)
     }
   }
@@ -41,5 +42,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
