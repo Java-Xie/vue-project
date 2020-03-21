@@ -64,15 +64,21 @@
       </template>
     </el-tab-pane>
     <el-tab-pane label="数据属性">
-      配置管理
-      <el-row :gutter="20">
-        <el-col :span="1">
-          <span>name:</span>
-        </el-col>
-        <el-col :span="8">
-          <el-input placeholder="name"></el-input>
-        </el-col>
-      </el-row>
+      <el-form ref="form" :model="form" label-width="80px">
+          <el-row :gutter="20">
+            <el-col :span="2">&nbsp;</el-col>
+            <el-col :span="10">
+              <el-form-item label="活动名称">
+                <el-input v-model="form.name"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="10">
+              <el-form-item label="活动名称">
+                <el-input v-model="form.name"></el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+      </el-form>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -82,6 +88,16 @@ export default {
   name: 'DataTable',
   data () {
     return {
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
       tableData: [{
         id: 1,
         name: 'DrillID',

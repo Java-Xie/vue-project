@@ -1,7 +1,12 @@
 <template>
-  <el-tabs :tab-position="tabPosition" style="height: 200px;">
-    <el-tab-pane v-for="d in data" :key="d.name" :label="d.tab"></el-tab-pane>
-  </el-tabs>
+  <el-table
+    :data="data"
+    max-height="700">
+    <el-table-column
+      prop="tab"
+      label="数据表">
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
