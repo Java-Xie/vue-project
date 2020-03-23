@@ -1,26 +1,25 @@
 <template>
-  <el-tabs type="card">
+  <el-tabs>
     <el-tab-pane label="数据展示">
       <template>
-        <el-row :gutter="20">
-          <el-col :span="10">
-            <el-col :span="4">
-              <span>name:</span>
+        <el-form ref="form" :model="form" label-width="80px">
+          <el-row :gutter="20">
+            <el-col :span="6">
+              <el-form-item label="name:">
+                <el-input  placeholder="name"></el-input>
+              </el-form-item>
             </el-col>
-            <el-col :span="10">
-              <el-input placeholder="name"></el-input>
-            </el-col>
-            <el-col :span="10">
+            <el-col :span="2">
               <el-button type="primary" icon="el-icon-search">查询</el-button>
             </el-col>
-          </el-col>
-          <el-col :span="10">
-            <div>&nbsp;</div>
-          </el-col>
-          <el-col :span="4">
+            <el-col :span="12">
+              &nbsp;
+            </el-col>
+            <el-col :span="2">
               <el-button type="primary" icon="el-icon-plus">新增</el-button>
-          </el-col>
-        </el-row>
+            </el-col>
+          </el-row>
+        </el-form>
         <el-table
           :data="tableData"
           style="width: 100%">
@@ -74,7 +73,7 @@
           </el-col>
           <el-col :span="10">
             <el-form-item label="类型：">
-              <el-input v-model="form.name"></el-input>
+              <el-input v-model="form.region"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -82,12 +81,12 @@
           <el-col :span="2">&nbsp;</el-col>
           <el-col :span="10">
             <el-form-item label="行数：">
-              <el-input v-model="form.name"></el-input>
+              <el-input v-model="form.date1"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="10">
             <el-form-item label="所有者：">
-              <el-input v-model="form.name"></el-input>
+              <el-input v-model="form.date2"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
@@ -102,7 +101,11 @@
         </el-table-column>
         <el-table-column
           prop="name"
-          label="是否主键">
+          label="是否主键"
+          align="center">
+          <template slot-scope="scope">
+            <el-checkbox v-model="scope.row.name"></el-checkbox>
+          </template>
         </el-table-column>
         <el-table-column
           prop="x"
@@ -110,9 +113,9 @@
         </el-table-column>
         <el-table-column
           prop="y"
-          label="是否为空">
+          label="是否为空"
+          align="center">
           <template slot-scope="scope">
-<!--            <el-input v-model="scope.row.y" placeholder="请输入内容"></el-input>-->
             <el-checkbox v-model="scope.row.y"></el-checkbox>
           </template>
         </el-table-column>
@@ -131,10 +134,10 @@ export default {
   data () {
     return {
       form: {
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
+        name: 'DrillMainTable',
+        region: '数据表',
+        date1: '2',
+        date2: 'postgres',
         delivery: false,
         type: [],
         resource: '',
@@ -160,20 +163,20 @@ export default {
         bool: '否'
       }],
       tableField: [{
-        id: 1,
+        id: 'ID',
         name: 'DrillID',
-        x: 1,
+        x: 'UUID',
         y: false,
-        z: 3,
+        z: 32,
         length: 20,
         openDate: '2016-05-02',
         bool: '否'
       }, {
-        id: 2,
-        name: 'DrillName',
-        x: 1,
+        id: 'Name',
+        name: false,
+        x: 'VARCHAR',
         y: true,
-        z: 3,
+        z: 255,
         length: 20,
         openDate: '2016-05-02',
         bool: '否'
