@@ -18,9 +18,10 @@ import Form from './Form'
 import TextForm from '../form/TextForm'
 import DataContainer from './data/DataContainer'
 import CompositeForm from './data/CompositeForm'
+import CustomForm from './data/CustomForm'
 export default {
   name: 'Main',
-  components: {Demo, Test, Form, TextForm, DataContainer, CompositeForm},
+  components: {Demo, Test, Form, TextForm, DataContainer, CompositeForm, CustomForm},
   data () {
     return {
       editableTabs: [{

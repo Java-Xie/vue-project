@@ -237,18 +237,7 @@
             {
               "name": "自定义表单",
               "url": "/second/2",
-              "content": "Demo",
-              "data": [
-                {
-                  "tab": "DrillMainView"
-                },
-                {
-                  "tab": "DrillDetailView"
-                },
-                {
-                  "tab": "DrillCodeView"
-                }
-              ]
+              "content": "CustomForm"
             }
           ]
         },

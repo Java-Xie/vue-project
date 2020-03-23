@@ -44,16 +44,18 @@
             label="z">
           </el-table-column>
           <el-table-column
-            prop="length"
-            label="length">
-          </el-table-column>
-          <el-table-column
-            prop="openDate"
-            label="openDate">
-          </el-table-column>
-          <el-table-column
-            prop="bool"
-            label="是否拓展字段">
+            label="操作"
+            width="220px">
+            <template slot-scope="scope">
+              <el-button
+                type="primary"
+                size="mini">修改</el-button>
+              <el-button
+                size="mini"
+                type="danger">删除</el-button>
+              <el-button
+                size="mini">复制</el-button>
+            </template>
           </el-table-column>
         </el-table>
         <el-pagination
@@ -62,34 +64,35 @@
         </el-pagination>
       </template>
     </el-tab-pane>
-    <el-tab-pane label="属性摘要">
-      <el-form ref="form" :model="form" label-width="100px" style="width: 600px">
-        <el-form-item label="名称：" style="width: 400px">
-          <el-input v-model="form.name"/>
-        </el-form-item>
-        <el-form-item label="类型：" style="width: 400px">
-          <el-input v-model="form.region"/>
-        </el-form-item>
-        <el-form-item label="说明：">
-          <el-input type="textarea" v-model="form.desc"/>
-        </el-form-item>
-        <el-card class="box-card">
-          <div slot="header">
-            <span>构成表</span>
-          </div>
-          <el-form-item label="Main:">
-            <el-input type="textarea" v-model="form.date1"/>
-          </el-form-item>
-          <el-form-item label="Code:">
-            <el-input type="textarea" v-model="form.date2"/>
-          </el-form-item>
-          <el-form-item label="Details:">
-            <el-input type="textarea" v-model="form.resource"/>
-          </el-form-item>
-        </el-card>
+    <el-tab-pane label="数据属性">
+      <el-form ref="form" :model="form" label-width="80px">
+        <el-row :gutter="20">
+          <el-col :span="2">&nbsp;</el-col>
+          <el-col :span="10">
+            <el-form-item label="名称：">
+              <el-input v-model="form.name"/>
+            </el-form-item>
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="类型：">
+              <el-input v-model="form.region"/>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="2">&nbsp;</el-col>
+          <el-col :span="10">
+            <el-form-item label="行数：">
+              <el-input v-model="form.date1"/>
+            </el-form-item>
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="所有者：">
+              <el-input v-model="form.date2"/>
+            </el-form-item>
+          </el-col>
+        </el-row>
       </el-form>
-    </el-tab-pane>
-    <el-tab-pane label="属性字段">
       <h2>字段</h2>
       <el-table
         :data="tableField"
@@ -100,7 +103,7 @@
         </el-table-column>
         <el-table-column
           prop="name"
-          label="字段描述"
+          label="是否主键"
           align="center">
           <template slot-scope="scope">
             <el-checkbox v-model="scope.row.name"/>
@@ -108,11 +111,11 @@
         </el-table-column>
         <el-table-column
           prop="x"
-          label="数据类型">
+          label="字段类型">
         </el-table-column>
         <el-table-column
           prop="y"
-          label="数据单位"
+          label="是否为空"
           align="center">
           <template slot-scope="scope">
             <el-checkbox v-model="scope.row.y"/>
@@ -120,7 +123,7 @@
         </el-table-column>
         <el-table-column
           prop="z"
-          label="是否默认字段">
+          label="长度">
         </el-table-column>
       </el-table>
     </el-tab-pane>
@@ -129,18 +132,18 @@
 
 <script>
 export default {
-  name: 'CompositeForm',
+  name: 'CustomTable',
   data () {
     return {
       form: {
-        name: 'DrillCompoundForm',
-        region: '复合表单',
-        date1: 'DrillMain Table',
-        date2: 'DrillCode Table',
+        name: 'DrillMainTable',
+        region: '数据表',
+        date1: '2',
+        date2: 'postgres',
         delivery: false,
         type: [],
-        resource: 'DrillDetails Table',
-        desc: '复合表单说明'
+        resource: '',
+        desc: ''
       },
       tableData: [{
         id: 1,
@@ -186,7 +189,7 @@ export default {
 </script>
 
 <style scoped>
-  .el-pagination{
-    text-align: center;
-  }
+.el-pagination{
+  text-align: center;
+}
 </style>
