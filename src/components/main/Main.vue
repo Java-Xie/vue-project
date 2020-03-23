@@ -6,8 +6,8 @@
       :label="item.title"
       :name="item.name"
     >
-      <component v-if="item.content !== 'DataContainer'" :is="item.content"/>
-      <component v-if="item.content === 'DataContainer'" :is="item.content" :data="item.data"/>
+      <component v-if="item.content === 'DataContainer' || item.content === 'CompositeForm'" :is="item.content" :data="item.data"/>
+      <component v-else :is="item.content"/>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -17,9 +17,10 @@ import Test from './Test'
 import Form from './Form'
 import TextForm from '../form/TextForm'
 import DataContainer from './data/DataContainer'
+import CompositeForm from './data/CompositeForm'
 export default {
   name: 'Main',
-  components: {Demo, Test, Form, TextForm, DataContainer},
+  components: {Demo, Test, Form, TextForm, DataContainer, CompositeForm},
   data () {
     return {
       editableTabs: [{

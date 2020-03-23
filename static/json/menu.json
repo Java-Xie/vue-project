@@ -205,17 +205,50 @@
             {
               "name": "数据视图",
               "url": "/second/2",
-              "content": "Demo"
+              "content": "DataContainer",
+              "data": [
+                {
+                  "tab": "DrillMainView"
+                },
+                {
+                  "tab": "DrillDetailView"
+                },
+                {
+                  "tab": "DrillCodeView"
+                }
+              ]
             },
             {
               "name": "复合表单",
               "url": "/second/2",
-              "content": "Demo"
+              "content": "CompositeForm",
+              "data": [
+                {
+                  "tab": "DrillMainForm"
+                },
+                {
+                  "tab": "DrillCodeForm"
+                },
+                {
+                  "tab": "DrillDetailForm"
+                }
+              ]
             },
             {
               "name": "自定义表单",
               "url": "/second/2",
-              "content": "Demo"
+              "content": "Demo",
+              "data": [
+                {
+                  "tab": "DrillMainView"
+                },
+                {
+                  "tab": "DrillDetailView"
+                },
+                {
+                  "tab": "DrillCodeView"
+                }
+              ]
             }
           ]
         },
