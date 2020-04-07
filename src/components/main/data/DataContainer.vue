@@ -1,8 +1,8 @@
 <template>
   <el-container>
-    <el-aside width="200px"><DataLeftMenu :data="data" /></el-aside>
+    <el-aside width="200px"><DataLeftMenu @rowTableClick="rowTableClick" /></el-aside>
     <el-container>
-      <el-main><DataTable/></el-main>
+      <el-main><DataTable :tabName="tabName"/></el-main>
     </el-container>
   </el-container>
 </template>
@@ -15,7 +15,16 @@ import DataTable from '../test/DataTable'
 export default {
   name: 'DataContainer',
   components: {DataMain, DataTop, DataLeftMenu, DataTable},
-  props: ['data']
+  data () {
+    return {
+      tabName: ''
+    }
+  },
+  methods: {
+    rowTableClick (tableName) {
+      this.tabName = tableName
+    }
+  }
 }
 </script>
 

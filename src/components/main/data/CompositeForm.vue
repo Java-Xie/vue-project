@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="200px"><DataLeftMenu :data="data" /></el-aside>
+    <el-aside width="200px"><DataLeftMenu/></el-aside>
     <el-container>
       <el-main><CompositeTable/></el-main>
     </el-container>
@@ -16,8 +16,7 @@ import CompositeTable from '../test/CompositeTable'
 
 export default {
   name: 'CompositeForm',
-  components: {DataMain, DataTop, DataLeftMenu, DataTable, CompositeTable},
-  props: ['data']
+  components: {DataMain, DataTop, DataLeftMenu, DataTable, CompositeTable}
 }
 </script>
 

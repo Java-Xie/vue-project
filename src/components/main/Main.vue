@@ -6,7 +6,7 @@
       :label="item.title"
       :name="item.name"
     >
-      <component v-if="item.content === 'DataContainer' || item.content === 'CompositeForm'" :is="item.content" :data="item.data"/>
+      <component v-if="item.content === 'DataContainer' || item.content === 'CompositeForm'" :is="item.content"/>
       <component v-else :is="item.content"/>
     </el-tab-pane>
   </el-tabs>

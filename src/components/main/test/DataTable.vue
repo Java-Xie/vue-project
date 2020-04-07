@@ -91,7 +91,7 @@
           </el-col>
         </el-row>
       </el-form>
-      <h2>字段</h2>
+      <h2>{{tabName}}</h2>
       <el-table
         :data="tableField"
         style="width: 100%">
@@ -182,7 +182,8 @@ export default {
         bool: '否'
       }]
     }
-  }
+  },
+  props: ['tabName']
 }
 </script>
 
