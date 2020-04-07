@@ -2,6 +2,7 @@
   <el-scrollbar style="height: 700px">
       <el-table
       :data="data"
+      highlight-current-row
       @row-click="rowClick">
       <el-table-column
         prop="tableName"
@@ -27,6 +28,7 @@ export default {
     axios.get('http://localhost/dataconfig/datatable/list/1')
       .then(function (response) {
         thisVue.data = response.data.data
+        thisVue.rowClick(thisVue.data[0])
       })
       .catch(function (error) {
         console.log(error)

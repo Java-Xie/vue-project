@@ -24,42 +24,12 @@
           :data="tableData"
           style="width: 100%">
           <el-table-column
-            prop="id"
-            label="id">
-          </el-table-column>
-          <el-table-column
-            prop="name"
-            label="name">
-          </el-table-column>
-          <el-table-column
-            prop="x"
-            label="x">
-          </el-table-column>
-          <el-table-column
-            prop="y"
-            label="y">
-          </el-table-column>
-          <el-table-column
-            prop="z"
-            label="z">
-          </el-table-column>
-          <el-table-column
-            prop="length"
-            label="length">
-          </el-table-column>
-          <el-table-column
-            prop="openDate"
-            label="openDate">
-          </el-table-column>
-          <el-table-column
-            prop="bool"
-            label="是否拓展字段">
+            v-for="field in tableDataField"
+            :key="field"
+            :prop="field"
+            :label="field">
           </el-table-column>
         </el-table>
-        <el-pagination
-          layout="prev, pager, next"
-          :total="50">
-        </el-pagination>
       </template>
     </el-tab-pane>
     <el-tab-pane label="数据属性">
@@ -129,6 +99,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'DataTable',
   data () {
@@ -143,25 +115,8 @@ export default {
         resource: '',
         desc: ''
       },
-      tableData: [{
-        id: 1,
-        name: 'DrillID',
-        x: 1,
-        y: 2,
-        z: 3,
-        length: 20,
-        openDate: '2016-05-02',
-        bool: '否'
-      }, {
-        id: 2,
-        name: 'DrillName',
-        x: 1,
-        y: 2,
-        z: 3,
-        length: 20,
-        openDate: '2016-05-02',
-        bool: '否'
-      }],
+      tableDataField: [],
+      tableData: [],
       tableField: [{
         id: 'ID',
         name: 'DrillID',
@@ -183,7 +138,20 @@ export default {
       }]
     }
   },
-  props: ['tabName']
+  props: ['tabName'],
+  watch: {
+    tabName: function () {
+      let thisVue = this
+      axios.get('http://localhost/dataconfig/datatable/ListTableContent/' + this.tabName + '/' + 1 + '/' + 4 + '')
+        .then(function (response) {
+          thisVue.tableDataField = response.data.field
+          thisVue.tableData = response.data.content
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+  }
 }
 </script>
 
