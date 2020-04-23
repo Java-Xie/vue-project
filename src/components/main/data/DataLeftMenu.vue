@@ -25,7 +25,7 @@ export default {
   },
   mounted: function () {
     let thisVue = this
-    axios.get('http://localhost/dataconfig/datatable/list/1')
+    axios.get('http://192.168.5.22/dataConfig/dataTable/list')
       .then(function (response) {
         thisVue.data = response.data.data
         thisVue.rowClick(thisVue.data[0])
