@@ -16,7 +16,7 @@
               &nbsp;
             </el-col>
             <el-col :span="2">
-              <el-button type="primary" icon="el-icon-plus">新增</el-button>
+              <el-button type="primary" icon="el-icon-plus" @click="add">新增</el-button>
             </el-col>
           </el-row>
         </el-form>
@@ -89,6 +89,16 @@
         </el-card>
       </el-form>
     </el-tab-pane>
+    <el-tab-pane label="动态数据表单">
+      <el-form ref="form" :model="form" label-width="100px" style="width: 600px">
+        <el-form-item v-for="item in formAddDataList" :key="item.key" :label="item.key" style="width: 400px">
+          <el-input v-model="item.val"/>
+        </el-form-item>
+      </el-form>
+      <el-col :span="2">
+        <el-button type="primary" icon="el-icon-plus" @click="add">新增</el-button>
+      </el-col>
+    </el-tab-pane>
     <el-tab-pane label="属性字段">
       <h2>字段</h2>
       <el-table
@@ -132,6 +142,12 @@ export default {
   name: 'CompositeForm',
   data () {
     return {
+      formAdd: ['test1', 'test2'],
+      formAddData: {test1: '数据一', test2: '数据二'},
+      formAddDataList: [
+        {key: 'test1', val: '数据一'},
+        {key: 'test2', val: '数据二'}
+      ],
       form: {
         name: 'DrillCompoundForm',
         region: '复合表单',
@@ -180,6 +196,17 @@ export default {
         openDate: '2016-05-02',
         bool: '否'
       }]
+    }
+  },
+  methods: {
+    add: function () {
+      // 把动态的数组信息保存为form表单
+      let formSave = {}
+      for (let i = 0; i < this.formAddDataList.length; i++) {
+        formSave[this.formAddDataList[i].key] = this.formAddDataList[i].val
+        // formSave.push(this.formAddDataList[i].key, this.formAddDataList[i].val)
+      }
+      console.log(formSave)
     }
   }
 }
