@@ -65,28 +65,8 @@
     <el-tab-pane label="属性摘要">
       <el-form ref="form" :model="form" label-width="100px" style="width: 600px">
         <el-form-item label="名称：" style="width: 400px">
-          <el-input v-model="form.name"/>
+          <el-input v-model="form['name']"/>
         </el-form-item>
-        <el-form-item label="类型：" style="width: 400px">
-          <el-input v-model="form.region"/>
-        </el-form-item>
-        <el-form-item label="说明：">
-          <el-input type="textarea" v-model="form.desc"/>
-        </el-form-item>
-        <el-card class="box-card">
-          <div slot="header">
-            <span>构成表</span>
-          </div>
-          <el-form-item label="Main:">
-            <el-input type="textarea" v-model="form.date1"/>
-          </el-form-item>
-          <el-form-item label="Code:">
-            <el-input type="textarea" v-model="form.date2"/>
-          </el-form-item>
-          <el-form-item label="Details:">
-            <el-input type="textarea" v-model="form.resource"/>
-          </el-form-item>
-        </el-card>
       </el-form>
     </el-tab-pane>
     <el-tab-pane label="动态数据表单">

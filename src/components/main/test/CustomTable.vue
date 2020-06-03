@@ -49,7 +49,8 @@
             <template slot-scope="scope">
               <el-button
                 type="primary"
-                size="mini">修改</el-button>
+                size="mini"
+                @click="updateData(scope.row)">修改</el-button>
               <el-button
                 size="mini"
                 type="danger">删除</el-button>
@@ -183,6 +184,11 @@ export default {
         openDate: '2016-05-02',
         bool: '否'
       }]
+    }
+  },
+  methods: {
+    updateData (row) {
+      console.log(row)
     }
   }
 }

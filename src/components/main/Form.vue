@@ -4,7 +4,7 @@
       <el-card class="box-card">
         <div slot="header">
           <span>表单名称</span>
-          <el-button style="float: right; padding: 3px 0" type="text">保存</el-button>
+          <el-button style="float: right; padding: 3px 0" @click="test" type="text">保存</el-button>
         </div>
         <el-row :key="control.name" v-for="control in controls">
           <component :is="control.content"/>
@@ -35,6 +35,7 @@
 import TextForm from '../form/TextForm'
 import NumberForm from '../form/NumberForm'
 import axios from 'axios'
+import {test} from '../../api/test'
 export default {
   name: 'Form',
   components: {TextForm, NumberForm},
@@ -66,6 +67,9 @@ export default {
         name: newName,
         content: 'TextForm'
       })
+    },
+    test () {
+      console.log(test())
     }
   }
 }
